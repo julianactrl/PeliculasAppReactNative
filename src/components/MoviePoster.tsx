@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.24,
     shadowRadius: 7,
-    elevation: 10,
+
+    elevation: 7,
     borderRadius: 18,
   },
   image: {

@@ -10,8 +10,13 @@ interface Props {
 
 export const HorizontalSlider = ({title, movies}: Props) => {
   return (
-    <View style={styles.flatListContainer}>
-      <Text style={styles.title}>{title}</Text>
+    <View
+      // eslint-disable-next-line react-native/no-inline-styles
+      style={{
+        ...styles.flatListContainer,
+        height: title ? 260 : 220,
+      }}>
+      {title && <Text style={styles.title}>{title}</Text>}
       <FlatList
         data={movies}
         renderItem={({item}: any) => (
@@ -32,9 +37,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
+    marginLeft: 15,
+    marginBottom: 8,
+    color: 'black',
   },
   flatListContainer: {
-    backgroundColor: 'red',
-    height: 260,
+    backgroundColor: 'white',
   },
 });
