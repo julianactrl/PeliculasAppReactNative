@@ -23,9 +23,9 @@ export const MoviePoster = ({movie, height = 420, width = 300}: Props) => {
       style={{
         width,
         height,
-        marginHorizontal: 2,
+        marginHorizontal: 1,
         paddingBottom: 20,
-        paddingHorizontal: 7,
+        paddingHorizontal: 5,
       }}>
       <View style={styles.imageContainer}>
         <Image source={{uri}} style={styles.image} />

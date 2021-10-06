@@ -6,9 +6,16 @@ import {MoviePoster} from './MoviePoster';
 interface Props {
   title?: string;
   movies: Movie[];
+  widthFlat?: number;
+  heightFlat?: number;
 }
 
-export const HorizontalSlider = ({title, movies}: Props) => {
+export const HorizontalSlider = ({
+  title,
+  movies,
+  widthFlat,
+  heightFlat,
+}: Props) => {
   return (
     <View
       // eslint-disable-next-line react-native/no-inline-styles
@@ -20,7 +27,7 @@ export const HorizontalSlider = ({title, movies}: Props) => {
       <FlatList
         data={movies}
         renderItem={({item}: any) => (
-          <MoviePoster movie={item} height={200} width={140} />
+          <MoviePoster movie={item} height={heightFlat} width={widthFlat} />
         )}
         keyExtractor={item => item.id.toString()}
         horizontal={true}
@@ -31,9 +38,6 @@ export const HorizontalSlider = ({title, movies}: Props) => {
 };
 
 const styles = StyleSheet.create({
-  carouselContainer: {
-    height: 440,
-  },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
@@ -42,6 +46,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   flatListContainer: {
+    flex: 1,
     backgroundColor: 'white',
   },
 });

@@ -6,7 +6,7 @@ import {DetailScreen} from '../screens/DetailScreen';
 import {Movie} from '../interfaces/movieInterface';
 
 export type RootStackParams = {
-  //HomeScreen: undefined;  por que no recibe ningun argumento
+  HomeScreen: undefined; //por que no recibe ningun argumento
   DetailScreen: Movie; // recibe una pelicula
 };
 
