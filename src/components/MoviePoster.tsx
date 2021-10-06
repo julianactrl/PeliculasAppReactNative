@@ -1,5 +1,7 @@
+// @ts-nocheck
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Movie} from '../interfaces/movieInterface';
 
 interface Props {
@@ -9,30 +11,37 @@ interface Props {
 }
 
 export const MoviePoster = ({movie, height = 420, width = 300}: Props) => {
-  console.log(movie.poster_path);
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+  const navigation = useNavigation<StackScreenProps<any, any>>();
+
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => navigation.navigate('DetailScreen', movie)}
+      activeOpacity={0.8}
       // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        ...styles.card,
         width,
         height,
+        marginHorizontal: 2,
+        paddingBottom: 20,
+        paddingHorizontal: 7,
       }}>
-      <View style={styles.containerImage}>
+      <View style={styles.imageContainer}>
         <Image source={{uri}} style={styles.image} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  card: {
-    marginHorizontal: 5,
+  image: {
+    flex: 1,
     borderRadius: 18,
   },
-  containerImage: {
+  imageContainer: {
     flex: 1,
+    borderRadius: 18,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -41,11 +50,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.24,
     shadowRadius: 7,
 
-    elevation: 7,
-    borderRadius: 18,
-  },
-  image: {
-    flex: 1,
-    borderRadius: 18,
+    elevation: 9,
   },
 });

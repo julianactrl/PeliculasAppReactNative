@@ -8,10 +8,14 @@ interface MoviesState {
   topRated: Movie[];
   upcoming: Movie[];
 }
-
 export const useMovies = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [moviesState, setMoviesState] = useState<MoviesState>();
+  const [moviesState, setMoviesState] = useState<MoviesState>({
+    nowPlaying: [],
+    popular: [],
+    topRated: [],
+    upcoming: [],
+  });
 
   const getMovies = async () => {
     const nowPlayingPromise =

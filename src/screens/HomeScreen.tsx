@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react';
 import {
   ActivityIndicator,
@@ -5,6 +7,7 @@ import {
   View,
   StyleSheet,
   ScrollView,
+  Text,
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import {useMovies} from '../hooks/useMovies';
@@ -15,38 +18,63 @@ import {HorizontalSlider} from '../components/HorizontalSlider';
 const {width: windowWidth} = Dimensions.get('window');
 
 export const HomeScreen = () => {
-  const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies();
+  // const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies();
+  const nowPlaying = [
+    {
+      title: 'Item 1',
+      text: 'Text 1',
+    },
+    {
+      title: 'Item 2',
+      text: 'Text 2',
+    },
+    {
+      title: 'Item 3',
+      text: 'Text 3',
+    },
+    {
+      title: 'Item 4',
+      text: 'Text 4',
+    },
+    {
+      title: 'Item 5',
+      text: 'Text 5',
+    },
+  ];
   const {top} = useSafeAreaInsets();
 
-  if (isLoading) {
-    return (
-      // eslint-disable-next-line react-native/no-inline-styles
-      <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
-        <ActivityIndicator color="red" size={100} />
-      </View>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     // eslint-disable-next-line react-native/no-inline-styles
+  //     <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
+  //       <ActivityIndicator color="red" size={100} />
+  //     </View>
+  //   );
+  // }
+  const _renderItem = ({item}) => {
+    return <Text>{item.text}</Text>;
+  };
 
   return (
-    <ScrollView>
+    <View>
       {/* // // eslint-disable-next-line react-native/no-inline-styles */}
       <View style={{marginTop: top + 20}}>
-        {/* Peliculas principales */}
         <View style={styles.carouselContainer}>
           <Carousel
-            data={nowPlaying!}
-            renderItem={({item}: any) => <MoviePoster movie={item} />}
+            layout={'default'}
+            data={nowPlaying}
+            // renderItem={({item}: any) => <MoviePoster movie={item} />}
+            renderItem={_renderItem}
             sliderWidth={windowWidth}
             itemWidth={300}
             inactiveSlideOpacity={0.9}
           />
         </View>
-        {/* Peliculas populares */}
-        <HorizontalSlider title="Populares" movies={popular!} />
-        <HorizontalSlider title="Más votadas" movies={topRated!} />
-        <HorizontalSlider title="Estrenos" movies={upcoming!} />
+        {/* <HorizontalSlider title="Populares" movies={popular} />
+        <HorizontalSlider title="Más votadas" movies={topRated} />
+        <HorizontalSlider title="Estrenos" movies={upcoming} /> */}
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
