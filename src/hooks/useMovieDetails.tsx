@@ -16,7 +16,6 @@ export const useMovieDetails = (movieId: number) => {
     cast: [],
   });
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getMovieDetail = async () => {
     const movieDetailPromise = movieDb.get<MovieDetail>(`/${movieId}`);
     const castPromise = movieDb.get<CreditsResponse>(`/${movieId}/credits`);
@@ -33,7 +32,8 @@ export const useMovieDetails = (movieId: number) => {
 
   useEffect(() => {
     getMovieDetail();
-  }, [getMovieDetail]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {...state};
 };

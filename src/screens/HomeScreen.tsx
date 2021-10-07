@@ -30,16 +30,8 @@ export const HomeScreen = () => {
   return (
     <ScrollView>
       {/* // // eslint-disable-next-line react-native/no-inline-styles */}
-      <View style={{marginTop: top + 20}}>
+      <View style={{marginTop: top}}>
         <View style={styles.carouselContainer}>
-          {/* <Carousel
-            layout={'tinder'}
-            data={nowPlaying}
-            renderItem={({item}: any) => <MoviePoster movie={item} />}
-            sliderWidth={windowWidth}
-            itemWidth={300}
-            inactiveSlideOpacity={0.9}
-          /> */}
           <HorizontalSlider
             movies={nowPlaying}
             widthFlat={windowWidth}
@@ -74,3 +66,12 @@ const styles = StyleSheet.create({
     height: 500,
   },
 });
+
+//  <Carousel
+//           layout={'tinder'}
+//           data={nowPlaying}
+//           renderItem={({item}: any) => <MoviePoster movie={item} />}
+//           sliderWidth={windowWidth}
+//           itemWidth={300}
+//           inactiveSlideOpacity={0.9}
+//         />
