@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
   },
   flatListContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    // backgroundColor: 'red',
   },
 });

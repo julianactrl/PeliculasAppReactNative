@@ -26,8 +26,6 @@ export const DetailScreen = ({route, navigation}: Props) => {
 
   const {isLoading, cast, movieFull} = useMovieDetails(movie.id);
 
-  console.log({movieFull});
-
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
