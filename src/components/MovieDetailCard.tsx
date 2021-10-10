@@ -13,11 +13,9 @@ interface Props {
 }
 
 export const MovieDetailCard = ({movieFull, cast}: Props) => {
-  console.log(cast);
   return (
     <>
       {/* Details */}
-      {/* // eslint-disable-next-line react-native/no-inline-styles */}
       <View style={{marginHorizontal: 20}}>
         <View style={{flexDirection: 'row'}}>
           <Icon name="star-outline" color="gray" size={16} />
@@ -73,7 +71,7 @@ export const MovieDetailCard = ({movieFull, cast}: Props) => {
           renderItem={({item}) => <CastCardItem actor={item} />}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{marginTop: 10, height: 70,}}
+          style={{marginTop: 10, height: 70}}
         />
       </View>
     </>

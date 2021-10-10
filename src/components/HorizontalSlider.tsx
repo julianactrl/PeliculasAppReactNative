@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, StyleSheet, FlatList, Text} from 'react-native';
 import {Movie} from '../interfaces/movieInterface';
@@ -18,7 +19,6 @@ export const HorizontalSlider = ({
 }: Props) => {
   return (
     <View
-      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         ...styles.flatListContainer,
         height: title ? 260 : 220,
